@@ -1,0 +1,21 @@
+{
+  "name": "rocket-sleep-log",
+  "version": "1.0.0",
+  "authors": [
+    "Roger Steve Ruiz <hi@rog.gr>"
+  ],
+  "description": "Rocket May's Baby Sleep Log",
+  "keywords": [
+    "sleep",
+    "log",
+    "d3"
+  ],
+  "license": "MIT",
+  "homepage": "http://rocketmay.co/sleep",
+  "private": true,
+  "dependencies": {
+    "almond": "~0.3.0",
+    "d3": "~3.4.13",
+    "jquery": "1.11.1"
+  }
+}
