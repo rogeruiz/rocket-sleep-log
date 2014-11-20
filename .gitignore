@@ -1,12 +1,13 @@
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
 # compiled output
-/dist
-/tmp
+/public/assets/javascripts
+/public/assets/css
+!/public/assets/images
 
 # dependencies
 /node_modules
-app/vendor
+app/assets/vendor
 
 # misc
 /.sass-cache
