@@ -1,18 +1,69 @@
-var http = require('http');
+'use strict';
+
 var express = require('express');
-var fs = require('fs');
-// var db = require('');
-var routes = require('./router');
+var exphbs = require('express-handlebars');
+var path = require('path');
+var favicon = require('serve-favicon');
+var logger = require('morgan');
+var cookieParser = require('cookie-parser');
+var bodyParser = require('body-parser');
 var debug = require('debug')('rocket-sleep-log');
 
-var app = module.exports = express();
+// Routes
+var routes = require('./routes/index');
+var track = require('./routes/track');
+var chart = require('./routes/chart');
 
-app.use(express.static(__dirname + '/public'));
+var app = express();
+var hbs = exphbs.create({
+  extname: '.hbs',
+  defaultLayout: 'application',
+  partialsDir: 'app/views/partials',
+  layoutsDir: 'app/views/layouts'
+});
+
+// Setup view engine
+app.engine('.hbs', hbs.engine);
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', '.hbs');
+
+// Setup some conventional Express things
+app.use(logger('dev'));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({
+  extended: false
+}));
+app.use(cookieParser());
+
+// Setup port
 app.set('port', process.env.PORT || 3000);
 
-routes(app);
+// Setup /public as static resource
+app.use(express.static(path.join(__dirname, '../public')));
 
-if (!module.parent) {
-  http.createServer(app).listen(app.get('port'), function() {});
-  debug('Express server listening on port ' + app.get('port'));
+// Setup routes
+app.use('/', routes);
+app.use('/track', track);
+app.use('/chart', chart);
+
+// Development error handler; everything is exposed.
+if (app.get('env') === 'development') {
+  app.use(function(err, req, res, next) {
+    res.status(err.status || 500);
+    res.render('error', {
+      message: err.message,
+      error: err
+    });
+  });
 }
+
+// Production error handler; keep it classy.
+app.use(function(err, req, res, next) {
+  res.status(err.status || 500);
+  res.render('error', {
+    message: err.message,
+    error: {}
+  });
+});
+
+module.exports = app;

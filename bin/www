@@ -1,7 +1,10 @@
 #!/usr/bin/env node
 var debug = require('debug')('rocket-sleep-log');
 var app = require('../app/start-app');
+var models = require('../app/models');
 
-var server = app.listen(app.get('port'), function() {
-  debug('Express server listening on port ' + server.address().port);
+models.sequelize.sync().then(function() {
+  var server = app.listen(app.get('port'), function() {
+    debug('Express server listening on port ' + server.address().port);
+  });
 });

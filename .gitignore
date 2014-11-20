@@ -9,6 +9,9 @@
 /node_modules
 app/assets/vendor
 
+# db
+*.sqlite
+
 # misc
 /.sass-cache
 /connect.lock
