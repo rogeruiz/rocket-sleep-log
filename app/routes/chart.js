@@ -17,4 +17,12 @@ router.get('/:start/:end', function(req, res) {
   });
 });
 
+router.get('/:start', function(req, res) {
+  // Get :start from DB, :end in this case is the latest date
+  res.render('chart', {
+    title: 'Chart ' + req.params.start + ' to latest data',
+    message: 'Let\'s chart from ' + req.params.start + ' to latest data'
+  });
+});
+
 module.exports = router;
