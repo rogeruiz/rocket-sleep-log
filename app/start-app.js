@@ -48,6 +48,7 @@ app.use('/chart', chart);
 
 // Development error handler; everything is exposed.
 if (app.get('env') === 'development') {
+  app.disable('view cache');
   app.use(function(err, req, res, next) {
     res.status(err.status || 500);
     res.render('error', {
