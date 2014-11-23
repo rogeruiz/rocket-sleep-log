@@ -10,16 +10,18 @@ router.get('/', function(req, res) {
 });
 
 router.get('/:type', function(req, res) {
-  // Render track :type
-  res.render('track', {
-    title: 'Track ' + req.params.type + 'time',
-    message: 'It\'s ' + req.params.type + 'time, let\'s track it.'
+  var type = req.params.type;
+
+  res.render('track/' + type, {
+    title: 'Track ' + type + 'time',
+    message: 'It\'s ' + type + 'time, let\'s track it.'
   });
 });
 
 router.post('/:type', function(req, res) {
   // Save :type data to DB
   // Then, go back to /index
+  console.log(req.body);
   res.redirect('..');
 });
 

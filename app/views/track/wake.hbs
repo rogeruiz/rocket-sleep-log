@@ -1,0 +1,28 @@
+<form action='/track/wake' method='post'>
+  <fieldset>
+    <legend>
+      <h3>Wake Time Tracking</h3>
+    </legend>
+    <label for='wake-time'>
+      <span>Wake time:</span>
+    <input type='time' name='wakeTime' id='wake-time'>
+    </label>
+    <label for='wake-action'>
+      <span>How the baby woke up:</span>
+      <textarea name='wakeAction' id='wake-action' cols='30' rows='10'></textarea>
+    </label>
+    <label for='wake-activity'>
+      <span>What we did:</span>
+      <textarea name='wakeActivity' id='wake-activity' cols='30' rows='10'></textarea>
+    </label>
+    <label for='sleep-time'>
+      <span>Sleep time:</span>
+    <input type='time' name='sleepTime' id='sleep-time'>
+    </label>
+    <label for='sleep-activity'>
+      <span>How baby fell back asleep:</span>
+      <textarea name='sleepActivity' id='sleep-activity' cols='30' rows='10'></textarea>
+    </label>
+    <input type='submit' value='Track time'>
+  </fieldset>
+</form>

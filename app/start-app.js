@@ -46,12 +46,20 @@ app.use('/', routes);
 app.use('/track', track);
 app.use('/chart', chart);
 
+// Catch 404 and forward to error handler
+app.use(function(req, res, next) {
+  var err = new Error('Not Found');
+  err.status = 404;
+  next(err);
+});
+
 // Development error handler; everything is exposed.
 if (app.get('env') === 'development') {
   app.disable('view cache');
   app.use(function(err, req, res, next) {
-    res.status(err.status || 500);
-    res.render('error', {
+    var status = err.status || 500;
+    res.status(status);
+    res.render('error/' + status, {
       message: err.message,
       error: err
     });
@@ -60,8 +68,9 @@ if (app.get('env') === 'development') {
 
 // Production error handler; keep it classy.
 app.use(function(err, req, res, next) {
-  res.status(err.status || 500);
-  res.render('error', {
+  var status = err.status || 500;
+  res.status(status);
+  res.render('error/' + status, {
     message: err.message,
     error: {}
   });

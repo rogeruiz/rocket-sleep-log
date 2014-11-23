@@ -1,0 +1,40 @@
+<form action='/track/bed' method='post'>
+  <fieldset>
+    <legend>
+      <h3>Bed Time Tracking</h3>
+    </legend>
+    <label for='sleep-time'>
+      <span>Time:</span>
+    <input type='time' name='sleepTime' id='sleep-time'>
+    </label>
+    <label for='activity'>
+      <span>What we did:</span>
+      <textarea name='activity' id='activity' cols="30" rows="10"></textarea>
+    </label>
+    <label for='activity-level'>
+      <span>Activity level:</span>
+      <select name='activityLevel' id='activity-level'>
+        <option value='low'>low</option>
+        <option value='medium'>medium</option>
+        <option value='high'>high</option>
+      </select>
+    </label>
+    <label for='noise-level'>
+      <span>Noise level:</span>
+      <select name='noiseLevel' id='noise-level'>
+        <option value='low'>low</option>
+        <option value='medium'>medium</option>
+        <option value='high'>high</option>
+      </select>
+    </label>
+    <label for='light-level'>
+      <span>Light level:</span>
+      <select name='lightLevel' id='light-level'>
+        <option value='low'>low</option>
+        <option value='medium'>medium</option>
+        <option value='high'>high</option>
+      </select>
+    </label>
+    <input type='submit' value='Track time'>
+  </fieldset>
+</form>
