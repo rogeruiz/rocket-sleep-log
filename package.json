@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "Rocket May's Baby Sleep Log",
   "main": "bin/www",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rogeruiz/rocket-sleep-log.git"
+  },
   "dependencies": {
     "body-parser": "^1.9.2",
     "cookie-parser": "^1.3.3",
@@ -23,6 +27,8 @@
     "debug": "^2.1.0",
     "grunt": "^0.4.5",
     "grunt-broccoli": "^0.3.7",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-exec": "^0.4.6",
     "qunit": "^0.7.5"
   },
   "scripts": {

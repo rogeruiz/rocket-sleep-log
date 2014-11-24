@@ -12,10 +12,15 @@
   ],
   "license": "MIT",
   "homepage": "http://rocketmay.co/sleep",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rogeruiz/rocket-sleep-log.git"
+  },
   "private": true,
   "dependencies": {
     "almond": "~0.3.0",
     "d3": "~3.4.13",
-    "jquery": "1.11.1"
+    "rsvp": "~3.0.13",
+    "jquery-2.1.1": "http://code.jquery.com/jquery-2.1.1.js"
   }
 }
