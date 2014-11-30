@@ -1,0 +1,57 @@
+fieldset {
+  margin: 20px 0;
+}
+
+.form-title {
+  line-height: 1;
+}
+.form-title__heading {
+  font-size: 22px;
+  text-transform: uppercase;
+  margin: 0;
+}
+.form-title__hint {
+  font-size: 11px;
+}
+
+label {
+  display: block;
+  cursor: pointer;
+  font-size: 11px;
+  span {
+    font-size: 14px;
+    line-height: 0.5;
+    margin: 20px 0 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    display: block;
+  }
+  p {
+    font-weight: 500;
+  }
+  .fa-asterisk {
+    color: $color-red;
+    font-size: 0.55em;
+    vertical-align: super;
+  }
+}
+
+.form-button {
+  margin: 30px 0;
+  padding: 15px 45px;
+  display: block;
+  border: 0;
+  background-color: $color-purple;
+  color: $color-white;
+  font-family: $font-display;
+  text-transform: uppercase;
+  line-height: 1;
+  font-weight: 900;
+  font-size: 11px;
+  cursor: pointer;
+  transition: all 0.25s ease-out;
+  &:hover {
+    background-color: lighten($color-purple, 25%);
+    color: $color-brown;
+  }
+}
