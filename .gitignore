@@ -1,13 +1,15 @@
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
 # compiled output
-/public/assets/javascripts
-/public/assets/css
-!/public/assets/images
+/public/js
+/public/css
+/public/img
+/public/fonts
 
 # dependencies
 /node_modules
 app/assets/vendor
+tmp/
 
 # db
 *.sqlite

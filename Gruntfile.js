@@ -37,7 +37,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-exec');
 
   grunt.registerTask('watch', [
-    'exec:express',
+    // 'exec:express',
     'broccoli:dev:watch',
     'watch:assets'
   ]);

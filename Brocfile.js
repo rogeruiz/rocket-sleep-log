@@ -18,30 +18,29 @@ var vendorJS = concatTree(assets, {
     'vendor/rsvp/rsvp.js',
     'vendor/d3/d3.js'
   ],
-  outputFile: '/public/js/vendor.js'
+  outputFile: '/js/vendor.js'
 });
 
-vendorJS = uglifyJS(vendorJS);
-
-var js = compileES6(assets, {
+var js = compileES6('app/assets/js', {
   inputFiles: [
-    'js/**/*.js'
+    '**/*.js'
   ],
   legacyFilesToAppend: [],
   wrapInEval: environment !== 'development',
-  outputFile: '/public/js/app.js'
+  outputFile: '/js/app.js'
 });
 
-// var vendorCSS = concatTree(assets, {
-//   inputFiles: [],
-//   outputFile: ''
-// });
-// vendorCSS = cleanCSS(vendorCSS);
+var vendorCSS = concatTree(assets, {
+  inputFiles: [
+    'vendor/font-awesome/css/font-awesome.css'
+  ],
+  outputFile: '/css/vendor.css'
+});
 
 var css = filterSass(
-  assets,
+  [assets],
   'sass/main.scss',
-  'public/css/app.css',
+  'css/app.css',
   {
     imagePath: 'public/img',
     outputStyle: environment === 'development' ? 'expanded' : 'compressed',
@@ -50,7 +49,31 @@ var css = filterSass(
   }
 );
 
+var fonts = pickFiles(assets, {
+  srcDir: 'vendor/font-awesome/fonts',
+  files: [
+    'fontawesome-webfont.eot',
+    'fontawesome-webfont.ttf',
+    'fontawesome-webfont.svg',
+    'fontawesome-webfont.woff'
+  ],
+  destDir: '/fonts'
+});
+
+var img = pickFiles(assets, {
+  srcDir: 'img',
+  files: [
+    // Uncomment as needed.
+    // '**/*.gif',
+    // '**/*.jpg',
+    '**/*.png'
+  ],
+  destDir: '/img'
+});
+
 if (environment === 'production') {
+  vendorCSS = cleanCSS(vendorCSS);
+  vendorJS = uglifyJS(vendorJS);
   css = cleanCSS(css);
   js = uglifyJS(js);
 }
@@ -59,8 +82,10 @@ module.exports = mergeTrees(
   [
     vendorJS,
     js,
-    // vendorCSS,
+    vendorCSS,
     css,
+    fonts,
+    img
   ],
   {
     overwrite: true

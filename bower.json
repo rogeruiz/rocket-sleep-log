@@ -21,6 +21,8 @@
     "almond": "~0.3.0",
     "d3": "~3.4.13",
     "rsvp": "~3.0.13",
-    "jquery-2.1.1": "http://code.jquery.com/jquery-2.1.1.js"
+    "jquery-2.1.1": "http://code.jquery.com/jquery-2.1.1.js",
+    "font-awesome": "~4.2.0",
+    "moment": "~2.8.4"
   }
 }
