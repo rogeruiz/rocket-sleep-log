@@ -1,40 +1,51 @@
 <form action='/track/bed' method='post'>
   <fieldset>
-    <legend>
-      <h3>Bed Time Tracking</h3>
+    <legend class='form-title'>
+      <h5 class='form-title__heading'>Track bed times</h5>
+      <p class='form-title__hint'>Fields marked with asterisks are required.</p>
     </legend>
+    <label for='date'>
+      <span>Date: <i class='fa fa-asterisk'></i></span>
+      <p>The date which you're tracking, usually today's date.</p>
+      <input type='date' name='date' id='date'>
+    </label>
     <label for='sleep-time'>
-      <span>Time:</span>
+      <span>Time: <i class='fa fa-asterisk'></i></span>
+      <p>The time the baby went down for the night, be as accurate as you'd like.</p>
     <input type='time' name='sleepTime' id='sleep-time'>
     </label>
     <label for='activity'>
-      <span>What we did:</span>
+      <span>What we did: <i class='fa fa-asterisk'></i></span>
+      <p>Write down what you and the baby did before sleep time. Examples include bath time, reading a book, etc.</p>
       <textarea name='activity' id='activity' cols="30" rows="10"></textarea>
     </label>
     <label for='activity-level'>
-      <span>Activity level:</span>
+      <span>Activity level: <i class='fa fa-asterisk'></i></span>
       <select name='activityLevel' id='activity-level'>
+        <option value=''>Select activity level</option>
         <option value='low'>low</option>
         <option value='medium'>medium</option>
         <option value='high'>high</option>
       </select>
     </label>
     <label for='noise-level'>
-      <span>Noise level:</span>
+      <span>Noise level: <i class='fa fa-asterisk'></i></span>
       <select name='noiseLevel' id='noise-level'>
+        <option value=''>Select noise level</option>
         <option value='low'>low</option>
         <option value='medium'>medium</option>
         <option value='high'>high</option>
       </select>
     </label>
     <label for='light-level'>
-      <span>Light level:</span>
+      <span>Light level: <i class='fa fa-asterisk'></i></span>
       <select name='lightLevel' id='light-level'>
+        <option value=''>Select light level</option>
         <option value='low'>low</option>
         <option value='medium'>medium</option>
         <option value='high'>high</option>
       </select>
     </label>
-    <input type='submit' value='Track time'>
+    <input class='form-button' type='submit' value='Track'>
   </fieldset>
 </form>

@@ -1,11 +1,16 @@
 <form action='/track/wake' method='post'>
   <fieldset>
-    <legend>
-      <h3>Wake Time Tracking</h3>
+    <legend class='form-title'>
+      <h5 class='form-title__heading'>Track wake times during the night</h5>
+      <p class='form-title__hint'>Fields marked with asterisks are required.</p>
     </legend>
+    <label for='date'>
+      <span>Date:</span>
+      <input type='date' name='date' id='date'>
+    </label>
     <label for='wake-time'>
       <span>Wake time:</span>
-    <input type='time' name='wakeTime' id='wake-time'>
+      <input type='time' name='wakeTime' id='wake-time'>
     </label>
     <label for='wake-action'>
       <span>How the baby woke up:</span>
@@ -23,6 +28,6 @@
       <span>How baby fell back asleep:</span>
       <textarea name='sleepActivity' id='sleep-activity' cols='30' rows='10'></textarea>
     </label>
-    <input type='submit' value='Track time'>
+    <input class='form-button' type='submit' value='Track'>
   </fieldset>
 </form>

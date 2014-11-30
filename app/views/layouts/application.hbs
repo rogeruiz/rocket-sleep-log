@@ -2,20 +2,32 @@
 <html>
   <head>
     <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width initial-scale=1.0 user-scalable=no'>
     <title>{{title}}</title>
+    <link href='http://fonts.googleapis.com/css?family=Old+Standard+TT:400,700' rel='stylesheet' type='text/css'>
+    <link rel='stylesheet' href='/css/vendor.css'>
+    <link rel='stylesheet' href='/css/app.css'>
   </head>
   <body>
     <header>
-      <h1>Welcome to Rocket May's sleep log</h1>
+      <h1>Rocket May's Sleep Log</h1>
     </header>
     <nav class='main-nav'>
-      <a class='main-nav__link' href='/track/bed'>Track A Bed Time</a>
-      <a class='main-nav__link' href='/track/wake'>Track A Wake Time</a>
-      <a class='main-nav__link' href='/chart'>Chart</a>
+      <a href='/' class='main-nav__link'><i class="fa fa-home"></i> Home</a>
+      <a class='main-nav__link' href='/track/bed'><i class="fa fa-clock-o"></i> Track Bed Time</a>
+      <a class='main-nav__link' href='/track/wake'><i class="fa fa-clock-o"></i> Track Wake Time</a>
+      <a class='main-nav__link' href='/track/nap'><i class="fa fa-clock-o"></i> Track Nap Time</a>
+      <a class='main-nav__link' href='/chart/sleep'><i class="fa fa-bar-chart"></i>Chart Sleep</a>
+      <a class='main-nav__link' href='/chart/naps'><i class="fa fa-bar-chart"></i>Chart Naps</a>
     </nav>
     {{{body}}}
     <footer>
-      <p>If there are any issues with the app, please <a href="mailto:support@rocketmay.co">email support</a>.</p>
+      <p>If there are any issues with the app, please <a href='mailto:support@rocketmay.co'>email support <i class="fa fa-envelope-square"></i></a></p>
     </footer>
+    <script src='/js/vendor.js'></script>
+    <script src='/js/app.js'></script>
+    <script>
+      require('main')['default']();
+    </script>
   </body>
 </html>

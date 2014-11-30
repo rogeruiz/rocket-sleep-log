@@ -1,3 +1,20 @@
 <h2>chart/index.hbs</h2>
 
-{{message}}
+<table>
+  <thead>
+    <td>Date <i class="fa fa-calendar-o"></i></td>
+    <td>Sleep Time <i class="fa fa-moon-o"></i></td>
+    <td>Wake Time <i class="fa fa-sun-o"></i></td>
+    <td>Duration <i class="fa fa-clock-o"></i></td>
+    <td>Activity <i class="fa fa-comment"></i></td>
+  </thead>
+{{#each data}}
+  <tr>
+    <td>{{date}}</td>
+    <td>{{sleepTime}}</td>
+    <td>{{wakeTime}}</td>
+    <td>{{duration}} Minutes</td>
+    <td>{{activity}}</td>
+  </tr>
+{{/each}}
+</table>

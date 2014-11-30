@@ -1,0 +1,29 @@
+<form action='/track/nap' method='post'>
+  <fieldset>
+    <legend class='form-title'>
+      <h5 class='form-title__heading'>Track nap time</h5>
+      <p class='form-title__hint'>Fields marked with asterisks are required.</p>
+    </legend>
+    <label for='date'>
+      <span>Date: <i class='fa fa-asterisk'></i></span>
+      <p>The date which you're tracking, usually today's date.</p>
+      <input type='date' name='date' id='date' value='{{times.today}}'>
+    </label>
+    <label for='sleep-time'>
+      <span>Sleep time: <i class='fa fa-asterisk'></i></span>
+      <p>The time the baby went down for a nap, be as accurate as you'd like.</p>
+      <input type='time' name='sleepTime' id='sleep-time' value='{{times.sleepTime}}'>
+    </label>
+    <label for='wake-time'>
+      <span>Wake time: <i class='fa fa-asterisk'></i></span>
+      <p>The time the baby woke up from the nap, be as accurate as you'd like.</p>
+      <input type='time' name='wakeTime' id='wake-time' value='{{times.wakeTime}}'>
+    </label>
+    <label for='activity'>
+      <span>Nap notes: <i class='fa fa-asterisk'></i></span>
+      <p>Write down any notes that you want to remember about this particular nap session.</p>
+      <textarea name='activity' id='activity' cols='30' rows='10'></textarea>
+    </label>
+    <input class='form-button' type='submit' value='Track'>
+  </fieldset>
+</form>

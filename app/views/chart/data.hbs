@@ -1,3 +1,7 @@
 <h2>chart/data.hbs</h2>
 
-{{message}}
+{{#each data}}
+  {{data.date}}
+  {{data.sleepTime}}
+  {{data.activity}}
+{{/each}}
