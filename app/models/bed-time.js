@@ -2,6 +2,11 @@
 
 module.exports = function(sequelize, DataTypes) {
   var BedTime = sequelize.define('BedTime', {
+    date: {
+      type: DataTypes.DATE,
+      allowNull: false,
+      primaryKey: true
+    },
     sleepTime: DataTypes.DATE,
     // What baby did
     activity: DataTypes.TEXT,
