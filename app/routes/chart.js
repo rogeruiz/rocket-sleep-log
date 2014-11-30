@@ -1,13 +1,17 @@
 'use strict';
 
+var controller = require('../controllers/chart');
 var models = require('../models');
 var express = require('express');
 var router = express.Router();
 
 router.get('/', function(req, res) {
-  // Nothing to see here, so go back to /index
-  res.render('chart/index', {
-
+  // Show all data. This could take a long time once the data gets really
+  // really big. Maybe we should paginate?
+  models.NapTime.findAll().then(function(naps) {
+    res.render('chart/index', {
+      data: controller.serializeNaps(naps)
+    });
   });
 });
 
