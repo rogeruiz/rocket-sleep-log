@@ -16,7 +16,9 @@ var vendorJS = concatTree(assets, {
     'vendor/jquery-2.1.1/index.js',
     'vendor/almond/almond.js',
     'vendor/rsvp/rsvp.js',
-    'vendor/d3/d3.js'
+    'vendor/d3/d3.js',
+    'vendor/bootstrap/dist/js/bootstrap.js',
+    'vendor/toastr/toastr.js'
   ],
   outputFile: '/js/vendor.js'
 });
@@ -32,7 +34,9 @@ var js = compileES6('app/assets/js', {
 
 var vendorCSS = concatTree(assets, {
   inputFiles: [
-    'vendor/font-awesome/css/font-awesome.css'
+    'vendor/font-awesome/css/font-awesome.css',
+    'vendor/bootstrap/dist/css/bootstrap.css',
+    'vendor/toastr/toastr.css'
   ],
   outputFile: '/css/vendor.css'
 });

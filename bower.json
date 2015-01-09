@@ -23,6 +23,8 @@
     "rsvp": "~3.0.13",
     "jquery-2.1.1": "http://code.jquery.com/jquery-2.1.1.js",
     "font-awesome": "~4.2.0",
-    "moment": "~2.8.4"
+    "moment": "~2.8.4",
+    "bootstrap": "~3.3.1",
+    "toastr": "~2.1.0"
   }
 }
