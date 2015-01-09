@@ -1,0 +1,36 @@
+table {
+  border: 1px $color-black solid;
+}
+
+tr {
+  margin: 0 10px;
+
+}
+
+td {
+  font-size: 14px;
+  padding: 5px 10px;
+  border: 1px $color-black solid;
+}
+
+.table__activity {
+  width: 300px;
+}
+
+.table__duration {
+  width: 80px;
+}
+
+%table__time {
+  width: 80px;
+}
+
+.table__time--sleep {
+  @extend %table__time;
+  background-color: lighten($color-red, 45%);
+}
+
+.table__time--wake {
+  @extend %table__time;
+  background-color: lighten($color-green, 10%);
+}

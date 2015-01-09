@@ -3,23 +3,45 @@
 }
 
 .main-nav__link {
+  position: relative;
   font-family: $font-display;
   text-transform: uppercase;
   font-weight: 900;
   font-size: 10px;
   margin: 1.4em 0;
   padding: 1.5em;
-  width: 12.5em;
+  // width: 12.5em;
   display: inline-block;
   background-color: $color-purple;
   color: $color-white;
   transition: all 0.25s ease-out;
   &:hover {
     background-color: lighten($color-purple, 25%);
+    .main-nav__link__text {
+      display: block;
+    }
   }
   .fa {
     padding-right: 0.25em;
     font-size: 18px;
     vertical-align: sub;
   }
+}
+
+.main-nav__link__text {
+  color: $color-purple;
+  display: none;
+  display: block;
+  position: absolute;
+  bottom: -15px;
+  left: 0;
+  width: 100%;
+  text-align: center;
+}
+
+.main-nav__divider {
+  border: 0;
+  width: 10px;
+  background: transparent;
+  display: inline-block;
 }

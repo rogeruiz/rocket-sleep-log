@@ -8,3 +8,19 @@ $color-purple: #A79ACC;
 $color-red: #B24244;
 $color-white: lighten($color-green, 14.5%);
 $color-black: #454545;
+
+body {
+  font-family: $font-body;
+  background-color: $color-white;
+  color: $color-black;
+  padding: 15px 10px 25px;
+}
+
+a {
+  text-decoration: none;
+  color: $color-black;
+  transition: color 0.25s ease-out;
+  &:hover {
+    color: $color-brown;
+  }
+}
