@@ -4,6 +4,7 @@ var controller = require('../controllers/track');
 var models = require('../models');
 var express = require('express');
 var router = express.Router();
+var debug = require('debug')('routes:track');
 
 router.get('/', function(req, res) {
   // Nothing to see here, so go back to /index
@@ -12,7 +13,7 @@ router.get('/', function(req, res) {
 
 router.get('/:type', function(req, res) {
   var type = req.params.type;
-  var times = controller.getInitialTimes();
+  var times = controller.generateToday();
 
   res.render('track/' + type, {
     title: 'Track ' + type + 'time',
@@ -26,17 +27,20 @@ router.post('/:type', function(req, res) {
   var type = req.params.type;
   var model = controller.serializeModel(type, req.body);
 
-  if (model.error == null) {
-    models[model.type].create(model.data).then(function() {
+  model.then(function(data) {
+    models[data.type].create(data.model).then(function() {
       res.redirect('..');
     });
-  } else {
-    res.status(500).render('error/500', {
-      message: 'Type does not exist',
-      error: undefined
-    });
-  }
-
+  }, function(error) {
+    debug(error);
+    if (!error) {
+      error = {
+        message: 'Nothing was rejected',
+        error: 'plain'
+      };
+    }
+    res.status(500).render('error/500', error);
+  });
 });
 
 module.exports = router;

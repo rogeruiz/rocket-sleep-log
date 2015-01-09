@@ -2,19 +2,19 @@
 
 <table>
   <thead>
-    <td>Date <i class="fa fa-calendar-o"></i></td>
-    <td>Sleep Time <i class="fa fa-moon-o"></i></td>
-    <td>Wake Time <i class="fa fa-sun-o"></i></td>
-    <td>Duration <i class="fa fa-clock-o"></i></td>
-    <td>Activity <i class="fa fa-comment"></i></td>
+    <td class='table__date'><i class="fa fa-calendar-o"></i> Date</td>
+    <td class='table__time'><i class="fa fa-moon-o"></i> Sleep</td>
+    <td class='table__time'><i class="fa fa-sun-o"></i> Wake</td>
+    <td class='table__duration'><i class="fa fa-clock-o"></i> Duration</td>
+    <td class='table__activity'><i class="fa fa-comment"></i> Activity</td>
   </thead>
 {{#each data}}
   <tr>
-    <td>{{date}}</td>
-    <td>{{sleepTime}}</td>
-    <td>{{wakeTime}}</td>
-    <td>{{duration}} Minutes</td>
-    <td>{{activity}}</td>
+    <td class='table__date'>{{date}}</td>
+    <td class='table__time--sleep'>{{sleepTime}}</td>
+    <td class='table__time--wake'>{{wakeTime}}</td>
+    <td class='table__duration'>{{duration}}</td>
+    <td class='table__activity'>{{activity}}</td>
   </tr>
 {{/each}}
 </table>
