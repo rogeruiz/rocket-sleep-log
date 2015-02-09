@@ -6,28 +6,22 @@ A D3 driven baby sleep log to track a baby's sleep.
 
 #### Installing Dependencies
 
-Server and build pipeline:
+Make sure you have Node.js along with Bower installed.
+
 ```sh
-npm install
+if [[ `which node` && `which bower` ]]; then echo "bower `bower -v` and node `node -v`"; fi
 ```
 
-Client assets:
+Install the server, asset pipeline, and client-dependencies:
 ```sh
-bower install
+npm install && bower install
 ```
 
 #### Running Server
 
-Running the server in development requires to Terminal sections to be open at
-this time. In the future, I'm hoping for development to be much more
-streamlined and only require at-most one command to boot the app.
+Running the application in development is very straight-forward. It's also the only option.
 
-Run in a Terminal session to start the server:
-```sh
-DEBUG=rocket-sleep-log PORT=3000 bin/www
-```
-
-Run in a separate Terminal session to start the asset pipeline:
+Run the server and watch files for changes.
 ```sh
 grunt watch
 ```

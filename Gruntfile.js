@@ -24,7 +24,7 @@ var config = {
     }
   },
   exec: {
-    express: 'DEBUG=rocket-sleep-log bin/www'
+    expressDev: 'DEBUG=rocket-sleep-log PORT=3000 bin/www'
   }
 };
 
@@ -37,9 +37,9 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-exec');
 
   grunt.registerTask('watch', [
-    // 'exec:express',
-    'broccoli:dev:watch',
-    'watch:assets'
+    'exec:expressDev',
+    // 'broccoli:dev:watch',
+    // 'watch:assets'
   ]);
   grunt.registerTask('build', [
     'broccoli:dist:build'

@@ -62,6 +62,7 @@ if (app.get('env') === 'development') {
       error: err
     });
   });
+  app.use(require('broccoli-middleware'));
 }
 
 // Production error handler; keep it classy.
