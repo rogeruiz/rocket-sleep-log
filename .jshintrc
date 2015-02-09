@@ -66,6 +66,7 @@
   "devel"         : true,      // Development/debugging (alert, confirm, etc)
   "dojo"          : false,     // Dojo Toolkit
   "jquery"        : true,      // jQuery
+  "qunit"         : true,      // QUnit
   "mootools"      : false,     // MooTools
   "node"          : true,      // Node.js
   "nonstandard"   : false,     // Widely adopted globals (escape, unescape, etc)
