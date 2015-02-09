@@ -1,5 +1,3 @@
-'use strict';
-
 module.exports = function(sequelize, DataTypes) {
   var NapTime = sequelize.define('NapTime', {
     date: {

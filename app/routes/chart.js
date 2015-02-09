@@ -1,5 +1,3 @@
-'use strict';
-
 var controller = require('../controllers/chart');
 var models = require('../models');
 var express = require('express');
