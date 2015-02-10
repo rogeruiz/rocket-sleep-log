@@ -28,10 +28,9 @@ models.sequelize.sync().then(function() {
 
     testrunner.run({
       code: 'app/routes/index.js',
-      tests: 'unit/routes/index.js'
+      tests: 'test/unit/routes/index.js'
     }, function(error, report) {
-      console.log('error', error);
-      console.log('report', report);
+      process.exit(0);
     });
 
   });
