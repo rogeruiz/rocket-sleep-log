@@ -1,0 +1,26 @@
+#!/bin/bash
+
+if [[ `which node` && `which npm` && `which bower` ]]; then
+  echo "[msg]:  Node and Bower are installed!";
+  echo "[msg]:  node `node -v`";
+  echo "[msg]:  bower `bower -v`";
+  if [ -d ./node_modules ]; then
+    read -p "[msg]:  Do you want to run \`npm install\` [Y/n] ";
+    npm install;
+  fi
+  if [ -d ./app/assets/vendor ]; then
+    read -p "[msg]:  Do you want to run \`bower install\` [Y/n] ";
+    bower install;
+  fi
+  exit 0;
+elif [[ !`which bower` && `which npm` ]]; then
+  echo "[error]:  Bower is not installed!";
+  echo "[msg]:  Install Bower via NPM: \`npm i -g bower\`";
+  exit 1;
+else
+  echo "[error]:  Neither Node nor Bower are installed!";
+  echo "[msg]:  Install Node from: http://nodejs.org/";
+  echo "[msg]:  Then, install Bower via NPM: \`npm i -g bower\`";
+  exit 1;
+fi
+

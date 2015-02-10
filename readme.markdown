@@ -9,12 +9,7 @@ A D3 driven baby sleep log to track a baby's sleep.
 Make sure you have Node.js along with Bower installed.
 
 ```sh
-if [[ `which node` && `which bower` ]]; then echo "bower `bower -v` and node `node -v`"; fi
-```
-
-Install the server, asset pipeline, and client-dependencies:
-```sh
-npm install && bower install
+./bin/sys/check
 ```
 
 #### Running Server
