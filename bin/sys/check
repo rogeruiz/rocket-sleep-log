@@ -1,26 +1,50 @@
 #!/bin/bash
 
+red='\033[0;31m'
+yellow='\033[1;33m'
+green='\033[0;32m'
+NC='\033[0m' # No Color
+
+# Let's check for Node and NPM and Bower, which are needed for the project.
 if [[ `which node` && `which npm` && `which bower` ]]; then
-  echo "[msg]:  Node and Bower are installed!";
-  echo "[msg]:  node `node -v`";
-  echo "[msg]:  bower `bower -v`";
-  if [ -d ./node_modules ]; then
-    read -p "[msg]:  Do you want to run \`npm install\` [Y/n] ";
-    npm install;
+  echo -e "${green}[msg]: Node and Bower are installed!${NC}";
+
+  # Let's see if the dependencies have been installed.
+  if [ ! -d ./node_modules ]; then
+    echo -e "${yellow}[que]: Do you want to run \`npm install\`${NC}";
+    select yn in "Yes" "No"; do
+      case $yn in
+        Yes ) npm install; break;;
+        No ) break;;
+      esac
+    done
   fi
-  if [ -d ./app/assets/vendor ]; then
-    read -p "[msg]:  Do you want to run \`bower install\` [Y/n] ";
-    bower install;
+  if [ ! -d ./app/assets/vendor ]; then
+    echo -e "${yellow}[que]: Do you want to run \`bower install\`${NC}";
+    select yn in "Yes" "No"; do
+      case $yn in
+        Yes ) bower install; break;;
+        No ) break;;
+      esac
+    done
   fi
+
+  # Lastly, echo out the versions of Node and Bower.
+  echo -e "${green}[msg]: node `node -v`${NC}";
+  echo -e "${green}[msg]: bower `bower -v`${NC}";
   exit 0;
-elif [[ !`which bower` && `which npm` ]]; then
-  echo "[error]:  Bower is not installed!";
-  echo "[msg]:  Install Bower via NPM: \`npm i -g bower\`";
+
+# If we don't have Bower but have Node, let's be helpful.
+elif [[ ! `which bower` && `which npm` ]]; then
+  echo -e "${red}[error]: Bower is not installed!${NC}";
+  echo -e "${green}[msg]: Install Bower via NPM: \`npm i -g bower\`${NC}";
   exit 1;
+
+# We can't do much of anything but help.
 else
-  echo "[error]:  Neither Node nor Bower are installed!";
-  echo "[msg]:  Install Node from: http://nodejs.org/";
-  echo "[msg]:  Then, install Bower via NPM: \`npm i -g bower\`";
+  echo -e "${red}[error]: Neither Node nor Bower are installed!${NC}";
+  echo -e "${green}[msg]: Install Node from: http://nodejs.org/${NC}";
+  echo -e "${green}[msg]: Then, install Bower via NPM: \`npm i -g bower\`${NC}";
   exit 1;
 fi
 
