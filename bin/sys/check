@@ -1,17 +1,17 @@
 #!/bin/bash
 
-red='\033[0;31m'
-yellow='\033[0;33m'
+red='\033[1;31m'
+yellow='\033[1;33m'
 green='\033[0;32m'
 NC='\033[0m' # No Color
 
 # Let's check for Node and NPM and Bower, which are needed for the project.
-if [[ `which node` && `which npm` && `which bower` ]]; then
+if [[ ! `which node` && `which npm` && `which bower` ]]; then
   echo -e "${green}[msg]: Node and Bower are installed!${NC}";
 
   # Let's see if the dependencies have been installed.
   if [ ! -d ./node_modules ]; then
-    echo -e "${yellow}[que]: Do you want to run \`npm install\`${NC}";
+    echo -e "${yellow}[msg]: Do you want to run \`npm install\`${NC}";
     select yn in "Sure" "No thanks!"; do
       case $yn in
         "Sure" ) npm install; break;;
@@ -20,7 +20,7 @@ if [[ `which node` && `which npm` && `which bower` ]]; then
     done
   fi
   if [ ! -d ./app/assets/vendor ]; then
-    echo -e "${yellow}[que]: Do you want to run \`bower install\`${NC}";
+    echo -e "${yellow}[msg]: Do you want to run \`bower install\`${NC}";
     select yn in "Sure" "No thanks!"; do
       case $yn in
         "Sure" ) bower install; break;;
@@ -36,15 +36,15 @@ if [[ `which node` && `which npm` && `which bower` ]]; then
 
 # If we don't have Bower but have Node, let's be helpful.
 elif [[ ! `which bower` && `which npm` ]]; then
-  echo -e "${red}[error]: Bower is not installed!${NC}";
-  echo -e "${green}[msg]: Install Bower via NPM: \`npm i -g bower\`${NC}";
+  echo -e "${red}[msg]: Bower is not installed!${NC}";
+  echo -e "${yellow}[msg]: Install Bower via NPM: \`npm i -g bower\`${NC}";
   exit 1;
 
 # We can't do much of anything but help.
 else
-  echo -e "${red}[error]: Neither Node nor Bower are installed!${NC}";
-  echo -e "${green}[msg]: Install Node from: http://nodejs.org/${NC}";
-  echo -e "${green}[msg]: Then, install Bower via NPM: \`npm i -g bower\`${NC}";
+  echo -e "${red}[msg]: Neither Node nor Bower are installed!${NC}";
+  echo -e "${yellow}[msg]: Install Node from: http://nodejs.org/${NC}";
+  echo -e "${yellow}[msg]: Then, install Bower via NPM: \`npm i -g bower\`${NC}";
   exit 1;
 fi
 
