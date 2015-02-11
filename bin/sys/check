@@ -50,7 +50,7 @@ function install_globals {
 print_logo
 
 # Let's check for Node and NPM and Bower, which are needed for the project.
-if [[ $NODE && $NPM && $BOWER ]]; then
+if [[ $NODE && $NPM && $BOWER && $GRUNT && $BROCCOLI ]]; then
 
   # Let's see if the dependencies have been installed.
   if [[ ! -d ./node_modules && -f ./package.json ]]; then
@@ -62,24 +62,13 @@ if [[ $NODE && $NPM && $BOWER ]]; then
 
   echo -e "${GREEN}[msg]: node: `node -v`${NC}";
   echo -e "${GREEN}[msg]: bower: `bower -v`${NC}";
-
-  if [ ! $BROCCOLI ]; then
-    echo -e "${RED}[msg]: Broccoli is not installed!${NC}";
-    install_globals 'broccoli-cli'
-  else
-    echo -e "${GREEN}[msg]: broccoli: `broccoli --version`${NC}";
-  fi
-  if [ ! $GRUNT ]; then
-    echo -e "${RED}[msg]: Grunt is not installed!${NC}";
-    install_globals 'grunt-cli'
-  else
-    echo -e "${GREEN}[msg]: grunt: `echo -n \`grunt --version\``${NC}";
-  fi
+  echo -e "${GREEN}[msg]: broccoli: `broccoli --version`${NC}";
+  echo -e "${GREEN}[msg]: grunt: `echo -n \`grunt --version\``${NC}";
 
   echo -e "${YELLOW}[msg]: All good ${GREEN}✓✓✓${NC}";
   exit 0;
 
-# If we don't have Bower but have Node, let's be helpful.
+# If we have Node but not one of the other global dependencies, let's be helpful.
 elif [ $NPM ]; then
   if [ ! $BOWER ]; then
     echo -e "${RED}[msg]: Bower is not installed!${NC}";
