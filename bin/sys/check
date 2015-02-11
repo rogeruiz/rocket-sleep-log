@@ -1,7 +1,7 @@
 #!/bin/bash
 
 red='\033[0;31m'
-yellow='\033[1;33m'
+yellow='\033[0;33m'
 green='\033[0;32m'
 NC='\033[0m' # No Color
 
@@ -12,19 +12,19 @@ if [[ `which node` && `which npm` && `which bower` ]]; then
   # Let's see if the dependencies have been installed.
   if [ ! -d ./node_modules ]; then
     echo -e "${yellow}[que]: Do you want to run \`npm install\`${NC}";
-    select yn in "Yes" "No"; do
+    select yn in "Sure" "No thanks!"; do
       case $yn in
-        Yes ) npm install; break;;
-        No ) break;;
+        "Sure" ) npm install; break;;
+        "No thanks!" ) break;;
       esac
     done
   fi
   if [ ! -d ./app/assets/vendor ]; then
     echo -e "${yellow}[que]: Do you want to run \`bower install\`${NC}";
-    select yn in "Yes" "No"; do
+    select yn in "Sure" "No thanks!"; do
       case $yn in
-        Yes ) bower install; break;;
-        No ) break;;
+        "Sure" ) bower install; break;;
+        "No thanks!" ) break;;
       esac
     done
   fi
