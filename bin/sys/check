@@ -11,6 +11,21 @@ BOWER=`which bower`
 
 FORCE_INSTALL=$1
 
+echo -e "${green}✓${yellow}                                                                                                   ${green}✓${NC}";
+echo -e "${green}✓${yellow}                                                                                                   ${green}✓${NC}";
+echo -e "${green}✓${yellow}             ✓ ✓ ✓ ✓ ✓ ✓ ✓ ✓ ✓ ✓ ✓       ✓ ✓ ✓ ✓      ✓ ✓ ✓ ✓ ✓ ✓          ✓ ✓ ✓ ✓ ✓ ✓ ✓ ✓ ✓ ✓ ✓   ${green}✓${NC}";
+echo -e "${green}✓${yellow}         ✓ ✓ ✓ ✓ ✓ ✓ ✓ ✓ ✓ ✓ ✓          ✓ ✓ ✓ ✓      ✓ ✓ ✓ ✓ ✓ ✓        ✓ ✓ ✓ ✓ ✓ ✓ ✓ ✓ ✓ ✓ ✓      ${green}✓${NC}";
+echo -e "${green}✓${yellow}       ✓ ✓ ✓ ✓ ✓ ✓ ✓                   ✓ ✓ ✓ ✓      ✓ ✓ ✓ ✓ ✓ ✓       ✓ ✓ ✓ ✓ ✓ ✓ ✓                ${green}✓${NC}";
+echo -e "${green}✓${yellow}     ✓ ✓ ✓ ✓ ✓ ✓ ✓                    ✓ ✓ ✓ ✓      ✓ ✓ ✓ ✓ ✓ ✓       ✓ ✓ ✓ ✓ ✓ ✓ ✓                 ${green}✓${NC}";
+echo -e "${green}✓${yellow}       ✓ ✓ ✓ ✓ ✓ ✓ ✓ ✓ ✓ ✓ ✓           ✓ ✓ ✓ ✓ ✓ ✓ ✓ ✓ ✓ ✓ ✓           ✓ ✓ ✓ ✓ ✓ ✓ ✓ ✓ ✓ ✓ ✓       ${green}✓${NC}";
+echo -e "${green}✓${yellow}         ✓ ✓ ✓ ✓ ✓ ✓ ✓ ✓ ✓ ✓ ✓           ✓ ✓ ✓ ✓ ✓ ✓ ✓ ✓ ✓               ✓ ✓ ✓ ✓ ✓ ✓ ✓ ✓ ✓ ✓ ✓     ${green}✓${NC}";
+echo -e "${green}✓${yellow}                   ✓ ✓ ✓ ✓ ✓ ✓             ✓ ✓ ✓ ✓ ✓ ✓ ✓                             ✓ ✓ ✓ ✓ ✓ ✓   ${green}✓${NC}";
+echo -e "${green}✓${yellow}                 ✓ ✓ ✓ ✓ ✓ ✓                 ✓ ✓ ✓ ✓ ✓                              ✓ ✓ ✓ ✓ ✓ ✓    ${green}✓${NC}";
+echo -e "${green}✓${yellow}     ✓ ✓ ✓ ✓ ✓ ✓ ✓ ✓ ✓ ✓ ✓                   ✓ ✓ ✓ ✓                   ✓ ✓ ✓ ✓ ✓ ✓ ✓ ✓ ✓ ✓ ✓ ✓     ${green}✓${NC}";
+echo -e "${green}✓${yellow} ✓ ✓ ✓ ✓ ✓ ✓ ✓ ✓ ✓ ✓ ✓                     ✓ ✓ ✓ ✓                 ✓ ✓ ✓ ✓ ✓ ✓ ✓ ✓ ✓ ✓ ✓ ✓         ${green}✓${NC}";
+echo -e "${green}✓${yellow}                                                                                                   ${green}✓${NC}";
+echo -e "${green}✓${yellow}                                                                                                   ${green}✓${NC}";
+
 function install_dependencies {
   if [[ -n $FORCE_INSTALL && $FORCE_INSTALL == '--install' ]]; then
     $1 install;
