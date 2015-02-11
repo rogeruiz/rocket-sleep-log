@@ -5,28 +5,36 @@ yellow='\033[1;33m'
 green='\033[0;32m'
 NC='\033[0m' # No Color
 
+NODE=`which node`
+NPM=`which npm`
+BOWER=`which bower`
+
+FORCE_INSTALL=$1
+
+function install_dependencies {
+  if [[ -n $FORCE_INSTALL && $FORCE_INSTALL == '--install' ]]; then
+    $1 install;
+  else
+    echo -e "${yellow}[msg]: Do you want to run \`${2} install\`${NC}";
+    select YN in "Sure" "No, thanks"; do
+      case $YN in
+        "Sure" ) $1 install; break;;
+        "No, thanks" ) break;;
+      esac
+    done
+  fi
+}
+
 # Let's check for Node and NPM and Bower, which are needed for the project.
-if [[ ! `which node` && `which npm` && `which bower` ]]; then
+if [[ $NODE && $NPM && $BOWER ]]; then
   echo -e "${green}[msg]: Node and Bower are installed!${NC}";
 
   # Let's see if the dependencies have been installed.
   if [ ! -d ./node_modules ]; then
-    echo -e "${yellow}[msg]: Do you want to run \`npm install\`${NC}";
-    select yn in "Sure" "No thanks!"; do
-      case $yn in
-        "Sure" ) npm install; break;;
-        "No thanks!" ) break;;
-      esac
-    done
+    install_dependencies $NPM 'npm'
   fi
   if [ ! -d ./app/assets/vendor ]; then
-    echo -e "${yellow}[msg]: Do you want to run \`bower install\`${NC}";
-    select yn in "Sure" "No thanks!"; do
-      case $yn in
-        "Sure" ) bower install; break;;
-        "No thanks!" ) break;;
-      esac
-    done
+    install_dependencies $BOWER 'bower'
   fi
 
   # Lastly, echo out the versions of Node and Bower.
@@ -35,7 +43,7 @@ if [[ ! `which node` && `which npm` && `which bower` ]]; then
   exit 0;
 
 # If we don't have Bower but have Node, let's be helpful.
-elif [[ ! `which bower` && `which npm` ]]; then
+elif [[ ! $BOWER && $NPM ]]; then
   echo -e "${red}[msg]: Bower is not installed!${NC}";
   echo -e "${yellow}[msg]: Install Bower via NPM: \`npm i -g bower\`${NC}";
   exit 1;
